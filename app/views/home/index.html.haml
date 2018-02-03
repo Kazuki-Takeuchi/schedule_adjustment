@@ -9,6 +9,7 @@
 
   %tbody
     %tr
-      %td= link_to "ユーザ一覧", users_url
+      - if is_admin?
+        %td= link_to "ユーザ一覧", users_url
 
 %br

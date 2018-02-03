@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  authorize_resource only: %i(index destroy)
   before_action :set_user, only: %i(destroy)
 
   def index
