@@ -1,0 +1,33 @@
+%h1 イベント一覧
+
+%table
+  %thead
+    %tr
+      %th イベント名
+      %th 場所
+      %th 期日
+      %th 参加人数
+      %th
+      %th
+      - if is_admin?
+        %th
+
+  %tbody
+    - @event_informations.each do |event_information|
+      %tr
+        %td= event_information.name
+        %td= event_information.place
+        %td= event_information.start_date
+        %td
+        %td= link_to '詳細', event_information
+        - if current_user
+          %td= link_to '変更', edit_event_information_path(event_information)
+        - if is_admin?
+          %td= link_to '削除', event_information, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+- if current_user
+  = link_to 'イベント作成', new_event_information_path
+  |
+= link_to 'ホームへ', root_url

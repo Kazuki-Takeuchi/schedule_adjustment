@@ -18,6 +18,10 @@ gem 'erb2haml'
 gem 'devise'
 gem 'cancancan'
 gem 'rails_admin'
+gem 'jquery-rails'
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

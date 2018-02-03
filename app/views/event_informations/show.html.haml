@@ -1,0 +1,16 @@
+%p#notice= notice
+
+%p
+  %b イベント名:
+  = @event_information.name
+%p
+  %b 場所:
+  = @event_information.place
+%p
+  %b 日時:
+  = @event_information.start_date
+
+- if current_user
+  = link_to '変更', edit_event_information_path(@event_information)
+  \|
+= link_to '戻る', event_informations_path

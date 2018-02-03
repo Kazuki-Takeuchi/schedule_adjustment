@@ -1,0 +1,22 @@
+= form_for @event_information do |f|
+  - if @event_information.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@event_information.errors.count, "error")} prohibited this event_information from being saved:"
+      %ul
+        - @event_information.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label "イベント名"
+    = f.text_field :name
+  .field
+    = f.label "場所"
+    = f.text_field :place
+  = f.label "日時"
+  .input-group.date.datepicker
+    = f.text_field :start_date, class: 'form_control'
+    %span.input-group-addon
+      %span.fa.fa-calendar
+  %br
+  .actions
+    = f.submit '保存'

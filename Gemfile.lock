@@ -43,6 +43,8 @@ GEM
     arel (8.0.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
+    bootstrap3-datetimepicker-rails (4.17.47)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.3)
     byebug (10.0.0)
     cancancan (2.1.3)
@@ -135,6 +137,8 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
+    momentjs-rails (2.17.1)
+      railties (>= 3.1)
     multi_json (1.13.1)
     nested_form (0.3.2)
     nio4r (2.2.0)
@@ -269,18 +273,22 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap3-datetimepicker-rails
   byebug
   cancancan
   coffee-rails (~> 4.2)
   devise
   erb2haml
   factory_bot_rails
+  font-awesome-rails
   haml-rails
   hirb
   hirb-unicode
   jbuilder (~> 2.5)
+  jquery-rails
   letter_opener (~> 1.1.0)
   listen (>= 3.0.5, < 3.2)
+  momentjs-rails
   pg (~> 0.18)
   puma (~> 3.7)
   rails (~> 5.1.4)
