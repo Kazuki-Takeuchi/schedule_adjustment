@@ -15,3 +15,7 @@
  *= require font-awesome
  *= require bootstrap-datetimepicker
  */
+.datepicker
+{
+  position: relative;
+}
