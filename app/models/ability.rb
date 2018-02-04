@@ -7,8 +7,10 @@ class Ability
       can :manage, :all
     elsif user
       can %i(read create update), EventInformation
+      can %i(read create update), SubEventInformation
     else
       can %i(read), EventInformation
+      can %i(read), SubEventInformation
       cannot :read, User
     end
   end

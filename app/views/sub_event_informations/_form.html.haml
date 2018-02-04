@@ -1,0 +1,25 @@
+= form_for [@event_information, @sub_event_information] do |f|
+  - if @sub_event_information.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@sub_event_information.errors.count, "error")} prohibited this sub_event_information from being saved:"
+      %ul
+        - @sub_event_information.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label "イベント詳細名"
+    = f.text_field :name
+  .field
+    = f.label "場所"
+    = f.text_field :place
+  .field
+    = f.label :url
+    = f.url_field :url
+  .field
+    = f.label "開始時刻"
+    = f.time_select :start_time
+  .field
+    = f.label "会費"
+    = f.number_field :price
+  .actions
+    = f.submit '保存'
