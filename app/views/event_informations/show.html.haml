@@ -23,7 +23,6 @@
       %th 開始時刻
       %th 会費
       %th 場所
-      %th 
       %th 参加人数
       %th 
       %th 
@@ -36,10 +35,9 @@
     - @event_information.sub_event_informations.each do |sub_event_information|
       %tr
         %td= sub_event_information.name
-        %td= sub_event_information.start_time
+        %td= sub_event_information.get_only_start_time
         %td= sub_event_information.price
-        %td= sub_event_information.place
-        %td= sub_event_information.url
+        %td= link_to sub_event_information.place, sub_event_information.url, target: ["_blank"]
         %td 
         %td 参加する
         %td= link_to '詳細', [@event_information, sub_event_information]
