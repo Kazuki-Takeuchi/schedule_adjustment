@@ -9,7 +9,7 @@
   %b 日時:
   = @event_information.start_date
 
-- if current_user
+- if is_admin?
   = link_to '変更', edit_event_information_path(@event_information)
   \|
 = link_to '戻る', event_informations_path
@@ -37,8 +37,8 @@
         %td= sub_event_information.name
         %td= sub_event_information.get_only_start_time
         %td= sub_event_information.price
-        %td= link_to sub_event_information.place, sub_event_information.url, target: ["_blank"]
-        %td 
+        %td= get_place_link(sub_event_information)
+        %td
         %td 参加する
         %td= link_to '詳細', [@event_information, sub_event_information]
         - if current_user
