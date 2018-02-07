@@ -39,6 +39,12 @@ group :development do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  # Vscode
+  gem 'ruby-debug-ide'
+  gem 'debase'
+  gem 'rcodetools'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
