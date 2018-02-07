@@ -18,7 +18,7 @@
         %td= event_information.name
         %td= event_information.place
         %td= event_information.start_date
-        %td
+        %td #{event_information.attendee_count}人
         %td= link_to '詳細', event_information
         - if current_user
           %td= link_to '変更', edit_event_information_path(event_information)
