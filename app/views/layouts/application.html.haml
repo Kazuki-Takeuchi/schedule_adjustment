@@ -21,11 +21,13 @@
         |
         - if is_admin?
           = link_to '管理画面へ', rails_admin_path
+          |
+        = link_to 'ホームへ', root_url
 
       %p{class: "notice"}
         = notice
       %p{class: "alert"}
         = alert
-
-  = yield
+  %div{id: "main"}
+    = yield
 
