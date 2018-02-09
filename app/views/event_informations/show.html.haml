@@ -22,9 +22,9 @@
       %th 会費
       %th 場所
       %th 参加人数
-      %th 
-      %th 
       - if current_user
+        %th 
+        %th
         %th
       - if is_admin?
         %th
@@ -37,16 +37,20 @@
         %td= sub_event_information.price
         %td= get_place_link(sub_event_information)
         %td
-          %div{id: "#{get_attendance_count_id(current_user, sub_event_information)}"} #{sub_event_information.attendances.count}人
-        - if sub_event_information.attendances.find_by(user: current_user)
-          %td= link_to '参加する', event_information_sub_event_information_attendance_path(@event_information, sub_event_information), method: :delete, data: { remote: true }, id: get_attend_tag_id(current_user, sub_event_information)
-        - else
-          %td= link_to '参加しない', attend_event_information_sub_event_information_attendance_path(@event_information, sub_event_information), method: :post, data: { remote: true }, id: get_attend_tag_id(current_user, sub_event_information)
-        %td= link_to '詳細', [@event_information, sub_event_information]
+          - if current_user
+            %div{id: "#{get_attendance_count_id(current_user, sub_event_information)}"}
+              #{sub_event_information.attendances.count}人
+          - else
+            #{sub_event_information.attendances.count}人
         - if current_user
+          - if sub_event_information.attendances.find_by(user: current_user)
+            %td= link_to '参加する', event_information_sub_event_information_attendance_path(@event_information, sub_event_information), method: :delete, data: { remote: true }, id: get_attend_tag_id(current_user, sub_event_information)
+          - else
+            %td= link_to '参加しない', attend_event_information_sub_event_information_attendance_path(@event_information, sub_event_information), method: :post, data: { remote: true }, id: get_attend_tag_id(current_user, sub_event_information)
+          %td= link_to '詳細', [@event_information, sub_event_information]
           %td= link_to '変更', edit_event_information_sub_event_information_path(@event_information, sub_event_information)
         - if is_admin?
-          %td= link_to '削除', event_information_sub_event_information_path(@event_information, sub_event_information), method: :delete, data: { confirm: 'Are you sure?' }
+          %td= link_to '削除', [@event_information, sub_event_information], method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 

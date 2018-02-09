@@ -10,7 +10,31 @@
   %b 場所:
   = get_place_link(@sub_event_information)
 
--if is_admin?
+- if is_admin?
   = link_to '変更', edit_event_information_sub_event_information_path(@event_information, @sub_event_information)
   \|
 = link_to '戻る', [@event_information]
+
+%br
+%br
+
+- if @sub_event_information.attendances.count == 0
+  %p
+    %b 参加者なし
+- else
+  %table
+    %thead
+      %tr
+        %th 参加者
+        - if is_admin?
+          %th email
+
+    %tbody
+      - @sub_event_information.attendances.each do |attendance|
+        - user = attendance.user
+        %tr
+          %td= user.name
+          - if is_admin?
+            %td= user.email
+%br
+
