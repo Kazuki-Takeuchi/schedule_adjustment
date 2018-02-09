@@ -4,7 +4,9 @@ class AttendancesController < ApplicationController
   def attend
     @attendance = @sub_event_information.attendances.build(user: current_user)
     if @attendance.save
-      render :js => "alert('参加登録成功');"
+      respond_to do |format|
+        format.js
+      end
     else
       render :js => "alert('参加登録失敗');"
     end
@@ -13,12 +15,14 @@ class AttendancesController < ApplicationController
   def destroy
     @attendance = @sub_event_information.attendances.find_by(user: current_user)
     @attendance.destroy!
-    render :js => "alert('不参加登録成功');"
-  end
+    respond_to do |format|
+      format.js
+    end
+end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_sub_event_information
-      @sub_event_information = SubEventInformation.find(params[:sub_event_information_id])
+      @event_information = EventInformation.find(params[:event_information_id])
+      @sub_event_information = @event_information.sub_event_informations.find(params[:sub_event_information_id])
     end
 end
