@@ -41,6 +41,8 @@ group :development do
   gem 'factory_bot_rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'rails-controller-testing'
+  gem 'capybara'
   # Vscode
   gem 'ruby-debug-ide'
   gem 'debase'

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "EventInformations", type: :request do
-  describe "GET /event_informations" do
-    it "works! (now write some real specs)" do
+  describe "イベント一覧" do
+    it "Index" do
       get event_informations_path
       expect(response).to have_http_status(200)
     end
