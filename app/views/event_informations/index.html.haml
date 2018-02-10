@@ -27,5 +27,5 @@
 
 %br
 
-- if current_user
+- if is_admin?
   = link_to 'イベント作成', new_event_information_path
