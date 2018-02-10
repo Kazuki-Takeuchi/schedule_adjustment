@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, only: %i(index destroy)
-  resources :event_informations do
+  resources :event_informations, only: %i(index show new edit create update destroy) do
     resources :sub_event_informations, only: %i(new show edit create update destroy) do
       resource :attendance, only: %i(destroy) do
         collection do

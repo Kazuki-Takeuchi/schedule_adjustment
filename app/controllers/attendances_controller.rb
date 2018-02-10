@@ -1,4 +1,5 @@
 class AttendancesController < ApplicationController
+  authorize_resource only: %i(attend destroy)
   before_action :set_sub_event_information, only: %i(attend destroy)
 
   def attend
