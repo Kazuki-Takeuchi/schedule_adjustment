@@ -8,7 +8,7 @@ class Ability
     elsif user
       can %i(read create update), EventInformation
       can %i(read create update), SubEventInformation
-      can %i(attend, destroy), Attendance
+      can %i(destroy), Attendance
     else
       can %i(read), EventInformation
       can %i(read), SubEventInformation

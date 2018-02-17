@@ -1,9 +1,12 @@
 class AttendancesController < ApplicationController
-  authorize_resource only: %i(attend destroy)
+  authorize_resource only: %i(destroy)
   before_action :set_sub_event_information, only: %i(attend destroy)
 
   def attend
-    @attendance = @sub_event_information.attendances.build(user: current_user)
+    if current_user
+      @attendance = @sub_event_information.attendances.build(user: current_user)
+    end
+
     if @attendance.save
       respond_to do |format|
         format.js
