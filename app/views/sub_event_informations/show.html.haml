@@ -26,6 +26,7 @@
     %thead
       %tr
         %th 参加者
+        %th 卒業年
         - if is_admin?
           %th email
 
@@ -34,6 +35,7 @@
         - user = attendance.user
         %tr
           %td= user.name
+          %td= user.graduation_year
           - if is_admin?
             %td= user.email
 %br
