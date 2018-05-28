@@ -31,12 +31,13 @@
           %th email
 
     %tbody
-      - @sub_event_information.attendances.each do |attendance|
+      - @attendances.each do |attendance|
         - user = attendance.user
         %tr
           %td= user.name
           %td= user.graduation_year
           - if is_admin?
             %td= user.email
+  = paginate @attendances
 %br
 
