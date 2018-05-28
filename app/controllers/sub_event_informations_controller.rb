@@ -4,7 +4,7 @@ class SubEventInformationsController < ApplicationController
   before_action :set_sub_event_information, only: %i(show edit update destroy)
 
   def show
-    @attendances = @sub_event_information.attendances.page(params[:page])
+    @attendances = @sub_event_information.attendances.includes(:user).order("users.graduation_year").page(params[:page])
   end
 
   def new
