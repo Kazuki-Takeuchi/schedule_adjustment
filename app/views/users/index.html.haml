@@ -6,10 +6,12 @@
       %th
       %th
       %th
+      %th
 
   %tbody
     - @users.each do |user|
       %tr
+        %td= user.name
         %td= user.email
         %td= user.graduation_year
         %td= link_to '削除', user, method: :delete, data: { confirm: 'Are you sure?' }
