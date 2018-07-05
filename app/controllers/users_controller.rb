@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i(destroy)
 
   def index
-    @users = User.all
+    @users = User.all.order("graduation_year").page(params[:page])
   end
 
   def destroy
